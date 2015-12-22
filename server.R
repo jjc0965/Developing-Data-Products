@@ -5,7 +5,11 @@ data("esoph")
 esophRisk<-function(age, alcohol, tobacco) {
   row<-which((esoph$agegp==age)&(esoph$alcgp==alcohol)&(esoph$tobgp==tobacco))
   esophRisk<-round(100*esoph[row, 4]/(esoph[row, 4]+esoph[row, 5]), 1)
-  paste0(as.character(esophRisk),"%")
+  output<-paste0(as.character(esophRisk),"%")
+  if (output=="%") {
+    output<-"ERROR - NO PATIENTS MET THESE PARAMETERS."
+  }
+  print(output)
 }
 
 shinyServer(

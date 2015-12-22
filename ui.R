@@ -4,7 +4,9 @@ library(shiny)
 shinyUI(pageWithSidebar(
   headerPanel("Esophageal cancer risk"),
   sidebarPanel(
-    h4('Data from a case-control study of esophageal cancer in Ille-et-Vilaine, France'),
+    h3('Data from a case-control study of esophageal cancer in Ille-et-Vilaine, France.'),
+    h3(' '),
+    h4('Please only check only one checkbox under each heading.'),
     checkboxGroupInput("age range", "Age range:",
                        c("25-34"="25-34",
                          "35-44"="35-44",
@@ -25,11 +27,11 @@ shinyUI(pageWithSidebar(
   ),
   mainPanel(
     h3('Results of Prediction'),
-    h4('You entered'),
+    h4('You entered:'),
     verbatimTextOutput("oid1"),
     verbatimTextOutput("oid2"),
     verbatimTextOutput("oid3"),
-    h4('Which resulted in a risk for esophageal cancer of '),
+    h4('Which resulted in a risk for esophageal cancer of:'),
     verbatimTextOutput("prediction")
   )
 ))
